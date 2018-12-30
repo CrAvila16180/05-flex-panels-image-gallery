@@ -1,5 +1,6 @@
 html{
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     background: #ffbf00;
     font-family: 'helvetica neue';
     font-size: 20px;
@@ -11,10 +12,13 @@ body {
 }
 
 *, *:before, *:after {
-    box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;
 }
 
 .panels {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
     overflow: hidden;
@@ -23,22 +27,48 @@ body {
 
 .panel {
     background: #6B0F9C;
-    box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+    -webkit-box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
     color: white;
     text-align: center;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-transition: 
+    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.2s,
+    -webkit-box-flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+    transition: 
+    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.2s,
+    -webkit-box-flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
     transition: 
     font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
     flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
     background 0.2s;
+    transition: 
+    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.2s,
+    -webkit-box-flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    -ms-flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
     font-size: 20px;
     background-size: cover;
     background-position: center;
-    flex: 1;
-    justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     
 }
 
@@ -53,18 +83,29 @@ body {
 .panel > * {
     margin: 0;
     width: 100%;
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
-    flex: 1 0 auto;
+    transition: transform 0.5s, -webkit-transform 0.5s;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     
   }
 
-.panel > *:first-child { transform: translateY(-100%);}
-.panel.open-active > *:first-child { transform: translateY(0);}
-.panel > *:last-child { transform: translateY(100%);}
-.panel.open-active > *:last-child { transform: translateY(0);}
+.panel > *:first-child { -webkit-transform: translateY(-100%); transform: translateY(-100%);}
+.panel.open-active > *:first-child { -webkit-transform: translateY(0); transform: translateY(0);}
+.panel > *:last-child { -webkit-transform: translateY(100%); transform: translateY(100%);}
+.panel.open-active > *:last-child { -webkit-transform: translateY(0); transform: translateY(0);}
 
 .panel p {
     text-transform: uppercase;
@@ -79,7 +120,9 @@ body {
 
 .panel.open {
     font-size: 40px;
-    flex: 5;
+    -webkit-box-flex: 5;
+        -ms-flex: 5;
+            flex: 5;
 }
 
 
